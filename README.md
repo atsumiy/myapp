@@ -5,6 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
+* Pull requestのテストです
+
 * Ruby version
 
 * System dependencies
