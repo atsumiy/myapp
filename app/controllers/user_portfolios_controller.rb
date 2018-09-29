@@ -1,4 +1,4 @@
-class UserPortfolioController < ApplicationController
+class UserPortfoliosController < ApplicationController
   def index
     @user_portfolio = UserPortfolio.all
 
