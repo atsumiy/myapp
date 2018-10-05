@@ -3,9 +3,10 @@
               <thead>
                 <tr>
                   <th>投資対象</th>
+                  <th>サービス名</th>
                   <th>投資合計額</th>
-	          <th>現在合計額</th>
-		  <th>損益額</th>
+	                <th>現在合計額</th>
+		               <th>損益額</th>
                   <th>積立月額</th>
                   <th>最終更新日</th>
                 </tr>
@@ -14,7 +15,10 @@
               <tbody>
                 <tr>
                   <td>
-		 <%= Investment.find_by(id: portfolio.investment_id).name %>
+		 <%= link_to(Investment.find_by(id: portfolio.investment_id).name,"/user_portfolios/#{portfolio.id}/edit") %>
+		</td>
+    <td>
+		 <%= "ここにURLを表示させる" %>
 		</td>
                   <td>
 		 <%= number_with_delimiter(portfolio.total_value) %>
