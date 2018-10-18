@@ -1,12 +1,10 @@
-<br>
-<br>
-
-<%= @user_portfolio.user_id %>
-<br>
-<%= form_for @user_portfolio do |f| %>
-
-投資対象を選んでください                           : <%= f.collection_select :investment_id, Investment.all,:id, :name %><br />
-既に投資済みの金額を入力してください               : <%= f.text_field :total_value %><br />
-積み立てをする場合は金額を入力してください(月額)   : <%= f.text_field :reserve_value %><br />
-                                       <%= f.submit %>
-<% end %>
+<div class="container">
+    <ul>
+        <%= form_for @user_portfolio do |f| %> 投資対象を選んでください :
+         <%= f.collection_select :investment_id, Investment.all,:id, :name %><br /> 既に投資済みの金額を入力してください :
+         <%= f.text_field :total_value %><br /> 積み立てをする場合は金額を入力してください(月額) :
+         <%= f.text_field :reserve_value %><br />
+         <%= f.submit %>
+        <% end %>
+     </ul>       
+</div>
