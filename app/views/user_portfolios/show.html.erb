@@ -1,10 +1,9 @@
-
 <div class="container">
-    <ul>
-投資対象                         : <%= Investment.find_by(id: @user_portfolio.investment_id).name %><br />
-投資金額              : <%=@user_portfolio.total_value %><br />
-積立金額(月額)   : <%= @user_portfolio.reserve_value %><br />
-<%= link_to("編集","edit") %> <%= link_to "削除","user_portfolio_path", method: :delete %>
-
- </ul>       
+  <ul>
+    投資対象 : <%= Investment.find_by(id: @user_portfolio.investment_id).name %><br/>
+    投資金額 : <%= @user_portfolio.total_value %><br/>
+    積立金額(月額) : <%= @user_portfolio.reserve_value %><br/>
+    <%= link_to("編集", "edit") %>
+    <%= link_to "削除", user_portfolio_path(@user_portfolio), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </ul>
 </div>
