@@ -7,12 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 class AddInitialInvestment_histories < ActiveRecord::Migration[5.0]
   def up
-    5.times do |i|
-     InvestmentHistory.create(user_portfolio_id: i, investment_monthly_value: i*10, update_year: i,update_month: i + 1 , monthly_profit_loss: i * 5, temporary_total_value: i + i * 10)
-    end
+    binding.pry
+    InvestmentService.create(name: "SBI証券",service_url: "https://site2.sbisec.co.jp/ETGate/?_ControlID=WPLETpfR001Control&_PageID=DefaultPID&_DataStoreID=DSWPLETpfR001Control&_ActionID=DefaultAID&getFlg=on&_scpr=int_pr1%3d170101_cmn_ctop_tlink_01")
+
+    #Investment.create(investment_service_id: i, name:) 
+    
   end
  
   def down
-    Investment_histories..delete_all
+    InvestmentService.delete_all
   end
 end
