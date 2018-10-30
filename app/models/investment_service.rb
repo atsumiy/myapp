@@ -1,0 +1,2 @@
+class InvestmentService < ApplicationRecord
+end
