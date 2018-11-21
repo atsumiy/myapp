@@ -1,2 +1,5 @@
 class UserPortfolio < ApplicationRecord
-end
+    belongs_to :investment
+    has_one :investment_history
+  end
+  
