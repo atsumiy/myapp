@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :user_portfolios
-  get 'user/show' => 'user#show'
+  resources :investment_histories
   root 'user_portfolios#index'
 end

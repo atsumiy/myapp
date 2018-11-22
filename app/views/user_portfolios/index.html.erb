@@ -1,5 +1,5 @@
 <div class="container">
- 
+  <%= link_to "csv出力",user_portfolios_path(format: :csv), class: 'btn btn-default' %>
   <table class="table table-striped table-sm __web-inspector-hide-shortcut__">
     <thead>
     <tr>
@@ -19,7 +19,8 @@
           <%= link_to(Investment.find_by(id: portfolio.investment_id).name, "/user_portfolios/#{portfolio.id}/") %>
         </td>
         <td>
-          <%= "ここにURLを表示させる" %>
+          <%= link_to(InvestmentService.find_by(id: Investment.find_by(id: portfolio.investment_id).investment_service_id).name,
+          InvestmentService.find_by(id: Investment.find_by(id: portfolio.investment_id).investment_service_id).service_url) %>
         </td>
         <td>
           <%= number_with_delimiter(portfolio.total_value) %>
@@ -30,15 +31,13 @@
         <td>
           0
         </td>
-
         <td>
           <%= number_with_delimiter(portfolio.reserve_value) %>
         </td>
-        <td> <%= p portfolio.updated_at.strftime("%Y-%m-%d(%a)") %>
+        <td> <%= portfolio.updated_at.strftime("%Y-%m-%d(%a)") %>
         </td>
       </tr>
       </tbody>
     <% end %>
-  </table>
-  
+  </table> 
 </div>

@@ -3,6 +3,12 @@ class UserPortfoliosController < ApplicationController
 
   def index
     @user_portfolio = UserPortfolio.all
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data render_to_string, filename: "user_portfolio.csv", type: :csv
+      end
+    end
   end
 
   def new
@@ -12,10 +18,10 @@ class UserPortfoliosController < ApplicationController
 
   def create
 
-    user_portfolio = UserPortfolio.new(user_portfolio_params)
-    if user_portfolio.save
+    @user_portfolio = UserPortfolio.new(user_portfolio_params)
+    if @user_portfolio.save
     end
-    redirect_to("/user_portfolios")
+    redirect_to :action => "index"
   end
 
   def edit

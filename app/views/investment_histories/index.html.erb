@@ -1,0 +1,37 @@
+<div class="container">
+ 
+<%= form_tag(investment_histories_path, :method => 'get' ) do %>
+  <%= select_tag :investment, options_from_collection_for_select(Investment.all, "id", "name",@investment_number) %>
+  <%= text_field_tag :year ,@update_year%>
+  <%= text_field_tag :month ,@update_month%>
+  <%= submit_tag '検索', :name => nil %>
+<% end %>
+
+  <table class="table table-striped table-sm __web-inspector-hide-shortcut__">
+    <thead>
+    <tr>
+      <th>投資対象</th>
+      <th>積立金額</th>
+      <th>積立年月</th>
+    </tr>
+    </thead>
+    <% @investment_histories.each do |investment_history| %>
+      <tbody>
+      <tr>
+        <td>
+          <%= link_to(
+                    "#{investment_history.user_portfolio.investment.name}",
+                    "/user_portfolios/#{investment_history.user_portfolio_id}") %>
+        </td>
+        <td> 
+          <%= number_with_delimiter(investment_history.investment_monthly_value) %>
+        </td>
+        <td>
+          <%= "#{investment_history.update_year} 年 #{investment_history.update_month}月" %>
+        </td>
+      </tr>
+      </tbody>
+    <% end %>
+  </table>
+  
+</div>
