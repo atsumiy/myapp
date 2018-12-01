@@ -1,7 +1,7 @@
 <div class="container">
  
 <%= form_tag(investment_histories_path, :method => 'get' ) do %>
-  <%= select_tag :investment, options_from_collection_for_select(Investment.all, "id", "name") %>
+  <%= select_tag :investment, options_from_collection_for_select(Investment.all, "id", "name",@investment_number) %>
   <%= text_field_tag :year ,@update_year%>
   <%= text_field_tag :month ,@update_month%>
   <%= submit_tag '検索', :name => nil %>
