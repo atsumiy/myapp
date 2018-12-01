@@ -1,4 +1,5 @@
 class UserPortfoliosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user_portfolio, only: [:show, :edit, :update, :destroy]
 
   def index
