@@ -13,8 +13,7 @@ class UserPortfoliosController < ApplicationController
   end
 
   def new
-    #ログイン機能実装後は、new(user_id: 1)をsessionを利用してログインユーザのidを使用する。
-    @user_portfolio = UserPortfolio.new(user_id: 1)
+    @user_portfolio = UserPortfolio.new(user_id: current_user.id)
   end
 
   def create

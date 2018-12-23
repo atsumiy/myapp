@@ -6,8 +6,6 @@
       <th>投資対象</th>
       <th>サービス名</th>
       <th>投資合計額</th>
-      <th>現在合計額</th>
-      <th>損益額</th>
       <th>積立月額</th>
       <th>最終更新日</th>
     </tr>
@@ -16,20 +14,14 @@
       <tbody>
       <tr>
         <td>
-          <%= link_to(Investment.find_by(id: portfolio.investment_id).name, "/user_portfolios/#{portfolio.id}/") %>
+          <%= link_to(portfolio.investment.name, edit_user_portfolio_path(id: portfolio.id)) %>
         </td>
         <td>
-          <%= link_to(InvestmentService.find_by(id: Investment.find_by(id: portfolio.investment_id).investment_service_id).name,
-          InvestmentService.find_by(id: Investment.find_by(id: portfolio.investment_id).investment_service_id).service_url) %>
+          <%= link_to(InvestmentService.find_by(id: portfolio.investment.investment_service_id).name,
+          InvestmentService.find_by(id: portfolio.investment.investment_service_id).service_url) %>
         </td>
         <td>
           <%= number_with_delimiter(portfolio.total_value) %>
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
         </td>
         <td>
           <%= number_with_delimiter(portfolio.reserve_value) %>
