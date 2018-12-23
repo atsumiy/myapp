@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  has_one :user_portfolio
   before_action :set_user, only: [:edit, :update]
   def edit
   end
