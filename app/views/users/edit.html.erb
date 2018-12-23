@@ -1,0 +1,10 @@
+<div class="container">
+    <ul>
+        <%= form_for @user do |f| %>
+            メールアドレス :<%= f.text_field :email %><br /> 
+            次回積立更新日 :<%= f.select :next_update_day, [['1日',1],['5日',5],['15日',15],['25日',25]]%><br />
+            <%= f.submit %>
+        <% end %>
+    </ul>
+ </div>
+ <%= link_to 'パスワードの変更はこちら', edit_user_registration_path %>

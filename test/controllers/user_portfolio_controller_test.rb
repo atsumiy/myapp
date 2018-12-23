@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class UserPortfolioControllerTest < ActionDispatch::IntegrationTest
+class UserPortfoliosControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get user_portfolio_index_url
+    get user_portfolios_index_url
     assert_response :success
   end
 
