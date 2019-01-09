@@ -65,5 +65,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-#定期実行を行う
+#定期実行処理
 gem 'whenever'
+#メール送信
+gem 'sendgrid-ruby'
